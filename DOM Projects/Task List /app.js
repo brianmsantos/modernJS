@@ -12,11 +12,13 @@ loadEventListeners();
 function loadEventListeners() {
   // Add task event
   form.addEventListener('submit', addTask);
-}
   //Remove task event
-  taskList.addEventListener('click', removeTask)
+  taskList.addEventListener('click', removeTask);
   //Clear task event
-  clearBtn.addEventListener('click', clearTasks)
+  clearBtn.addEventListener('click', clearTasks);
+  //Filter tasks events 
+  filter.addEventListener('keyup', filterTasks);
+}
 
 // Add Task
 function addTask(e) {
