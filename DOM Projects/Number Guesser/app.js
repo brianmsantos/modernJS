@@ -40,7 +40,24 @@ guessBtn.addEventListener('click', function(){
     //Set message
     setMessage(`${winningNum} is right! YOU WIN`, 'green');
   }else {
+    //Wrong number
+    guessesLeft -= 1;
+    if(guessesLeft === 0){
+      //Game over - lost 
 
+      //Disable Input 
+    guessInput.disabled = true;
+    //Change border color
+    guessInput.style.borderColor = 'red';
+    //Set message
+    setMessage(`Game Over, you lost. The correct number was ${winningNum}`, 'red');
+    } else {
+      //Game continues - answer wrong
+      guessInput.style.borderColor = 'red';
+      //Change border color 
+
+      setMessage(`${guess} is incorrect, ${guessesLeft} guesses left`)
+    }
   }
 });
 
