@@ -23,6 +23,8 @@ const game = document.getElementById('#game'),
 minNum.textContent = min;
 maxNum.textContent = max;
 
+
+
 // Listen for guess 
 guessBtn.addEventListener('click', function(){
   let guess = parseInt(guessInput.value);
@@ -31,17 +33,22 @@ guessBtn.addEventListener('click', function(){
   if(isNaN(guess) || guess < min || guess > max){
     setMessage(`Please enter a number between ${min} and ${max}`, 'red')
   }
+
   //Check if won
   if (guess === winningNum){
+    //Game over- won
+    
     //Disable Input 
     guessInput.disabled = true;
     //Change border color
     guessInput.style.borderColor = 'green';
     //Set message
     setMessage(`${winningNum} is right! YOU WIN`, 'green');
+
   }else {
     //Wrong number
     guessesLeft -= 1;
+
     if(guessesLeft === 0){
       //Game over - lost 
 
@@ -49,6 +56,7 @@ guessBtn.addEventListener('click', function(){
     guessInput.disabled = true;
     //Change border color
     guessInput.style.borderColor = 'red';
+
     //Set message
     setMessage(`Game Over, you lost. The correct number was ${winningNum}`, 'red');
     } else {
